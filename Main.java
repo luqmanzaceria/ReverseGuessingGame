@@ -21,28 +21,37 @@ public class Main {
             System.out.println("Hope you play next time!");
             System.exit(0);
         }
-             else{
+        else{
 
-
-            int maxnum;
+            String input;
+            Integer maxnum = null;
             int minnum = 1;
 
 
             System.out.println("Please pick a range you would like to play in (1 - ?).");
 
 
-            //I need a code that will check if input is number
-
-
             do {
                 System.out.println("The number should be greater than 2.");
-                Scanner range = new Scanner(System.in);
 
-                maxnum = range.nextInt();
-            } while (maxnum <= 2);
+                try {
+                    Scanner range = new Scanner(System.in);
+                    input = range.nextLine();
+                    maxnum = Integer.parseInt(input);
+                }
+                catch(Exception e){
+                    System.out.println("Your input is not valid. Please enter a number." );
+                }
+
+
+            }while (maxnum==null || maxnum<=2);
+
+
+
 
 
             String proceed;
+
 
             System.out.println("Your range is 1 - " + maxnum + ". Pick a number within your chosen range.");
             int tries;
@@ -90,3 +99,4 @@ public class Main {
         }
     }
 }
+
